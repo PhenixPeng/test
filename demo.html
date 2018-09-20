@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<p class="p"></p>
+	<script>
+		let wechat = null;
+		const wechatArr = ['微信1','微信2','微信3','微信4','微信5','微信6','微信7']
+		const p = document.querySelector('.p') // 取到p标签
+
+
+		function checkStorage(){   // 定义函数 检查localstorage
+			if(!localStorage.getItem('__wechatName')){ // 如果没有这个参数
+				var index = Math.floor((Math.random()*wechatArr.length)) // 取到随机索引
+				wechat = wechatArr[index] // 设置wechat微信名变量等于这个数组其中随机一项				
+				localStorage.setItem('__wechatName',wechat)
+				p.innerHTML = '微信名： ' + wechat
+			} else {  // 如果有这个参数
+				var wechat = localStorage.getItem('__wechatName')
+				p.innerHTML = '微信名： ' + wechat
+			}
+		}
+
+		checkStorage(); // 打开页面的时候调用这个函数
+		
+		
+
+		
+	</script>	
+</body>
+</html>
